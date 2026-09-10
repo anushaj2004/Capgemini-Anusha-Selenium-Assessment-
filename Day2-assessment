@@ -1,0 +1,83 @@
+//test-case1
+package Assessment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Day2_test_case1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver= new ChromeDriver();
+	     driver.manage().window().maximize();
+	     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	     driver.get("https://www.facebook.com/reg/?_rdr");
+	     Thread.sleep(2000);
+	     WebElement ele =driver.findElement(By.id("_R_1cl2p4jikacppb6amH1_"));
+	     int firstname =ele.getLocation().getY();
+	     WebElement ele1 =driver.findElement(By.id("_R_1kl2p4jikacppb6amH1_"));
+	     int surname=ele1.getLocation().getY();
+	     if(firstname==surname)
+	     {
+	    	 System.out.println("fistname and surname textfields are aligned in same line");
+	     }
+	     else
+	     {
+	    	 System.out.println("fistname and surname textfields are not aligned in same line");
+	     }
+	     
+	     
+	}
+
+}
+
+
+
+
+test-case2
+
+
+package Assessment;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class day2_test_case2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver= new ChromeDriver();
+	     driver.manage().window().maximize();
+	     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	     driver.get("https://www.facebook.com/reg/?_rdr");
+	     Thread.sleep(2000);
+	     WebElement ele =driver.findElement(By.id("_R_6ad8p4jikacppb6amH1_"));
+	     String DomattributeBefore = ele.getDomAttribute("value");
+	     String DomPropertyBefore = ele.getDomProperty("value");
+	     System.out.println(DomattributeBefore );
+	     System.out.println(DomPropertyBefore );
+	     ele.sendKeys("anusha@gmail.com");
+	     String DomAtrributeAfter = ele.getDomAttribute("value");
+	     String DomPropertyAfter = ele.getDomProperty("value");
+	     System.out.println(DomAtrributeAfter);
+	     System.out.println(DomPropertyAfter);
+	     WebElement submit = driver.findElement(By.xpath("(//span[text()='Submit'])[2]"));
+	     System.out.println(submit.getSize());
+	     System.out.println(submit.getCssValue("color"));
+	     System.out.println(submit.getCssValue("font-family"));
+	     System.out.println(submit.getCssValue("font-size"));
+  
+	}
+
+}
+
+
+test-case3
